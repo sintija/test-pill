@@ -19,26 +19,36 @@ document.body.appendChild(renderer.domElement)
 
 const controls = new OrbitControls(camera, renderer.domElement)
 
+// Initial parameters for capsule
+const initialRadius = 1 // Adjusted to a smaller initial radius
+const initialLength = 3 // You can adjust this length as needed
+
 // Capsule geometry and material setup
-const geometry = new THREE.CapsuleGeometry(5, 8, 20, 10)
+// Capsule geometry and material setup
+const geometry = new THREE.CapsuleGeometry(initialRadius, initialLength, 20, 10)
 const material = new THREE.MeshBasicMaterial({ color: 0x00bfff }) // Light blue color
 const capsule = new THREE.Mesh(geometry, material)
 scene.add(capsule)
 
 // Cylinder to act as the black border in the middle
-const cylinderGeometry = new THREE.CylinderGeometry(5.1, 5.1, 0.2, 32)
+const cylinderGeometry = new THREE.CylinderGeometry(
+	initialRadius + 0.1,
+	initialRadius + 0.1,
+	0.2,
+	32
+)
 const cylinderMaterial = new THREE.MeshBasicMaterial({ color: 0x000000 }) // Black color
 const cylinder = new THREE.Mesh(cylinderGeometry, cylinderMaterial)
-cylinder.position.y = 0 // Adjust this value to move the cylinder up or down along the capsule
+cylinder.position.y = 0 // Ensure it's centered
 scene.add(cylinder)
 
 const gui = new GUI()
 const params = {
-	radius: 5,
-	length: 5,
-	capSegments: 10,
+	radius: 1,
+	length: 3,
+	capSegments: 20,
 	radialSegments: 20,
-	borderThickness: 0.2, // control for the thickness of the border
+	borderThickness: 0.1, // control for the thickness of the border
 }
 
 gui.add(params, "radius", 1, 10).onChange(function (value) {
