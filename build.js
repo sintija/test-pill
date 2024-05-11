@@ -1,23 +1,26 @@
-const fs = require("fs")
+const express = require("express")
+const app = express()
 const path = require("path")
 
-const copyFiles = () => {
-	const filesToCopy = ["index.html", "style.css", "client.js"] // Ensure these are the files you need
+// Serve static files from 'public' directory
+app.use(express.static(path.join(__dirname, "public")))
 
-	filesToCopy.forEach((file) => {
-		// Make sure 'dist' directory exists
-		if (!fs.existsSync(path.join(__dirname, "dist"))) {
-			fs.mkdirSync(path.join(__dirname, "dist"))
-		}
-		// Copy file from 'public' to 'dist'
-		fs.copyFileSync(
-			path.join(__dirname, "public", file),
-			path.join(__dirname, "dist", file)
-		)
-	})
+// Additional middleware to serve '/build/' and '/jsm/' directories from node_modules
+app.use(
+	"/build/",
+	express.static(path.join(__dirname, "node_modules", "three", "build"))
+)
+app.use(
+	"/jsm/",
+	express.static(
+		path.join(__dirname, "node_modules", "three", "examples", "jsm")
+	)
+)
 
-	console.log("Files copied to dist directory successfully!")
-}
+// Route to serve the main HTML file
+app.get("/", (req, res) => {
+	res.sendFile(path.join(__dirname, "public", "index.html"))
+})
 
-// Call copyFiles in your build script
-copyFiles()
+// Listen on port 3000
+app.listen(3000, () => console.log("Server running on http://127.0.0.1:3000"))
