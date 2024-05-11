@@ -3,8 +3,12 @@
   "version": "1.0.0",
   "description": "A Threejs Boilerplate to aid in quick prototyping",
   "scripts": {
-    "build": "node build.js",
-    "start": "node app.js"
+    "clean": "rimraf ./dist/*",
+    "prestart": "npm run clean",
+    "start": "nodemon app.js",
+    "start:bs": "browser-sync start --proxy 'localhost:3000' --files 'public/**/*.*'",
+    "prebuild": "npm run clean",
+    "build": "node build.js"
   },
   "repository": {
     "type": "git",
@@ -31,8 +35,11 @@
   },
   "devDependencies": {
     "@parcel/transformer-glsl": "^2.9.3",
+    "browser-sync": "^3.0.2",
+    "concurrently": "^8.2.2",
     "parcel": "^2.0.0-rc.0",
-    "parcel-bundler": "^1.12.5"
+    "parcel-bundler": "^1.12.5",
+    "rimraf": "^5.0.6"
   },
   "main": "app.js",
   "directories": {
