@@ -1,8 +1,27 @@
 const express = require("express")
-const app = express()
 const path = require("path")
+const app = express()
 
-// Serve static files from the 'dist' directory
-app.use(express.static(path.join(__dirname, "dist")))
+// Serve static files from the public directory
+app.use(express.static(path.join(__dirname, "public")))
 
-app.listen(3000, () => console.log("Server running on http://127.0.0.1:3000"))
+// Serve three.module.js and OrbitControls.js
+app.use(
+	"/build",
+	express.static(path.join(__dirname, "node_modules/three/build"))
+)
+app.use(
+	"/jsm/controls",
+	express.static(
+		path.join(__dirname, "node_modules/three/examples/jsm/controls")
+	)
+)
+
+app.get("/", function (req, res) {
+	res.sendFile(path.join(__dirname, "public", "index.html"))
+})
+
+const PORT = process.env.PORT || 3000
+app.listen(PORT, () =>
+	console.log(`Server running on http://localhost:${PORT}`)
+)

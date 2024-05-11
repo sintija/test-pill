@@ -1,5 +1,5 @@
-import * as THREE from "three"
-import { OrbitControls } from "./jsm/controls/OrbitControls.js"
+import * as THREE from "/build/three.module.js"
+import { OrbitControls } from "/jsm/controls/OrbitControls.js"
 
 const scene = new THREE.Scene()
 const camera = new THREE.PerspectiveCamera(
