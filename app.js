@@ -1,9 +1,8 @@
-const express = require('express')
+const express = require("express")
 const app = express()
-const path = require('path')
+const path = require("path")
 
-app.use(express.static(__dirname + '/public'))
-app.use('/build/', express.static(path.join(__dirname, 'node_modules/three/build')))
-app.use('/jsm/', express.static(path.join(__dirname, 'node_modules/three/examples/jsm')))
+// Serve static files from the 'dist' directory
+app.use(express.static(path.join(__dirname, "dist")))
 
-app.listen(3000, () => console.log('Visit http://127.0.0.1:3000'))
+app.listen(3000, () => console.log("Server running on http://127.0.0.1:3000"))

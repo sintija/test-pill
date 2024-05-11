@@ -3,10 +3,8 @@
   "version": "1.0.0",
   "description": "A Threejs Boilerplate to aid in quick prototyping",
   "scripts": {
-    "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm install && parcel build public/index.html --public-url ./"
-
+    "build": "node build.js",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
@@ -27,8 +25,17 @@
     "express": "^4.18.2",
     "three": "^0.164.1"
   },
+  "alias": {
+    "three": "./node_modules/three/build/three.module.js",
+    "OrbitControls": "./node_modules/three/examples/jsm/controls/OrbitControls.js"
+  },
   "devDependencies": {
     "@parcel/transformer-glsl": "^2.9.3",
-    "parcel": "^2.9.3"
+    "parcel": "^2.0.0-rc.0",
+    "parcel-bundler": "^1.12.5"
+  },
+  "main": "app.js",
+  "directories": {
+    "doc": "docs"
   }
 }
