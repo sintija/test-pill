@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A Threejs Boilerplate to aid in quick prototyping",
   "scripts": {
-    "build": "node build.js",
+    "build": "webpack --mode production",
     "start": "node app.js"
   },
   "repository": {
@@ -30,12 +30,20 @@
     "OrbitControls": "./node_modules/three/examples/jsm/controls/OrbitControls.js"
   },
   "devDependencies": {
+    "@babel/core": "^7.24.5",
+    "@babel/preset-env": "^7.24.5",
     "@parcel/transformer-glsl": "^2.9.3",
-    "parcel": "^2.0.0-rc.0",
-    "parcel-bundler": "^1.12.5",
-    "vite": "^5.2.11"
+    "babel-loader": "^9.1.3",
+    "copy-webpack-plugin": "^12.0.2",
+    "css-loader": "^7.1.1",
+    "html-webpack-plugin": "^5.6.0",
+    "parcel": "^2.12.0",
+    "style-loader": "^4.0.0",
+    "vite": "^5.2.11",
+    "webpack": "^5.91.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.0.4"
   },
-  "main": "app.js",
   "directories": {
     "doc": "docs"
   }
