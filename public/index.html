@@ -51,31 +51,30 @@
     <script type="module" src="client.js"></script>
     <script>
         function typeWriter(element, text, i = 0) {
+            if (i === 0) {
+                element.style.visibility = 'visible'; // Make the element visible when typing starts
+            }
             if (i < text.length) {
-                element.style.visibility = 'visible'; // Make element visible as typing starts
                 element.textContent += text.charAt(i);
-                setTimeout(() => typeWriter(element, text, i + 1), 50); // Set delay to 50ms for a slower and more readable speed
+                setTimeout(() => typeWriter(element, text, i + 1), 50); // Continue typing
             }
         }
 
         document.addEventListener('DOMContentLoaded', () => {
             const elements = document.querySelectorAll('#info-section > *, #did-you-know-section > *,  #pill-info-1 > *,  #pill-info-2 > *,  #pill-info-3 > *,   #toxsic-info > *, #other-title > * ,  #link-1 > *, #link-2 > *, #link-3 > * , #Last > * ');
-            elements.forEach(el => {
-                el.style.visibility = 'hidden'; // Initially hide elements to prevent flash
-            });
 
             let cumulativeDelay = 0;
 
             elements.forEach((element) => {
                 const originalText = element.textContent;
-                element.textContent = ''; // Clear text initially
+                element.textContent = ''; // Clear text initially to ensure it starts blank
 
                 // Schedule the start of the typewriter effect using setTimeout based on cumulative delay
                 setTimeout(() => {
                     typeWriter(element, originalText, 0);
                 }, cumulativeDelay);
 
-                cumulativeDelay += originalText.length * 50 + 500; // Adjust cumulative delay for each element, slower typing speed
+                cumulativeDelay += originalText.length * 50 + 500; // Adjust cumulative delay for each element, considering the typing speed
             });
         });
     </script>

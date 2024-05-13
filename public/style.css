@@ -42,33 +42,10 @@ html, body {
     margin-bottom: 10px;
 }
 
-/* Footer styles for clear visibility */
-footer#footer-links {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    background: black; /* Ensure background consistency */
-    text-align: center;
-    padding: 20px 0;
+#info-section, #info-section > * {
+    visibility: hidden; /* Ensure all elements inside info-section are not visible initially */
 }
 
-.footer-content {
-    width: 80%;
-    max-width: 960px;
-    margin: auto;
-    text-align: left;
-}
-
-.footer-content h2 {
-    color: limegreen;
-    text-transform: uppercase;
-}
-
-.footer-content p {
-    font-size: 1.3em;
-    line-height: 1.5;
-    margin-bottom: 10px;
-}
 
 .highlight {
     background-color: limegreen;
