@@ -22,37 +22,44 @@
     <div id="canvas-container"></div>
     <div id="info-section">
         <h1 id="main-title">You Selected a Green Pill, You Are Safe</h1>
-        <p id="intro">By selecting the green pill....
+        <p id="intro">By selecting the green pill, you've taken a symbolic step towards safety and awareness.
+            While you are 'safe' in this scenario, it's important to understand the broader context of benzodiazepine
+            prescriptions and their impacts.
+
         </p>
-        <p id="did-you-know-section"> Did you know:</p>
-        <p id="pill-info-1">&nbsp;💗&nbsp;Yo :</p>
-        <p id="pill-info-2">&nbsp;💗&nbsp;Yo :</p>
-        <p id="pill-info-3">&nbsp;💗&nbsp;Yo :</p>
 
-        <p id="toxsic-info"> Through TOXSICK we want to advocate for awareness that leads</p>
-        <h1 id="other-title">How can you help?</h1>
+        <p id="pill-info-1">&nbsp;💊&nbsp;Despite their common use, between 10% and 15% of those prescribed long term
+            will experience serious or fatal injury.</p>
+        <p id="pill-info-2">&nbsp;💊&nbsp;Patients and medical staff are often unaware of the true risks</p>
+        <p id="pill-info-3">&nbsp;💊&nbsp;Only about 0.2% of those taking prescribed benzodiazepines meet the criteria
+            for addiction.</p>
 
-        <p id="link-1"><a href="https://www.google.com/">Google</a></p>
-
-
-
-
-
+        <p id="toxsic-info">
+            Through TOXSICK we want to advocate for awareness that leads to real-world change, so that those who have
+            been injured can be properly supported, and that we can all live in a world where we can trust our medical
+            systems.
+        </p>
+        <h2>HOW CAN YOU HELP</h2>
+        <p id="other-title">Follow us on social media <span class="highlight">@TOXSICKFILM</span></p>
+        <p id="link-1">Donate to our production <span class="highlight">https://www.toxsick.org/donate</span></p>
+        <p id="link-2">Work with us <span class="highlight">contact@toxsick.org</span></p>
+        <p id="link-3">Become an Executive Producer <span class="highlight">contact@toxsick.org</span></p>
+        <p id="Last">Tell your friends, family and colleagues about us – and help spread life-saving awareness</p>
     </div>
     <!-- Additional elements -->
-    </div>
+
     <script type="module" src="client.js"></script>
     <script>
         function typeWriter(element, text, i = 0) {
             if (i < text.length) {
                 element.style.visibility = 'visible'; // Make element visible as typing starts
                 element.textContent += text.charAt(i);
-                setTimeout(() => typeWriter(element, text, i + 1), 100); // Speed of typing
+                setTimeout(() => typeWriter(element, text, i + 1), 50); // Set delay to 50ms for a slower and more readable speed
             }
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-            const elements = document.querySelectorAll('#info-section > *, #did-you-know-section > *,  #pill-info-1 > *,  #pill-info-2 > *,  #pill-info-3 > *,   #toxsic-info > *, #other-title > * ,  #link-1 > * ');
+            const elements = document.querySelectorAll('#info-section > *, #did-you-know-section > *,  #pill-info-1 > *,  #pill-info-2 > *,  #pill-info-3 > *,   #toxsic-info > *, #other-title > * ,  #link-1 > *, #link-2 > *, #link-3 > * , #Last > * ');
             elements.forEach(el => {
                 el.style.visibility = 'hidden'; // Initially hide elements to prevent flash
             });
@@ -63,14 +70,16 @@
                 const originalText = element.textContent;
                 element.textContent = ''; // Clear text initially
 
+                // Schedule the start of the typewriter effect using setTimeout based on cumulative delay
                 setTimeout(() => {
-                    typeWriter(element, originalText);
+                    typeWriter(element, originalText, 0);
                 }, cumulativeDelay);
 
-                cumulativeDelay += originalText.length * 100 + 500; // Adjust cumulative delay for each element
+                cumulativeDelay += originalText.length * 50 + 500; // Adjust cumulative delay for each element, slower typing speed
             });
         });
     </script>
+
 </body>
 
 </html>
