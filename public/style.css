@@ -18,42 +18,62 @@ html, body {
 }
 
 #info-section {
-    width: 80%; /* Adjusted for overall width */
-    max-width: 960px; /* Ensures content doesn't stretch too far on larger screens */
+    width: 80%;
+    max-width: 960px;
     margin: 20px auto;
     padding: 20px;
     box-sizing: border-box;
     text-align: left;
+    visibility: hidden; /* Hide initially to prevent flash */
 }
 
 #info-section h1, #info-section h2 {
     text-align: center;
-    font-size: 1.5em; /* Larger size for headers */
-    color: limegreen; /* Titles in green */
-    text-transform: uppercase; /* Uppercase for headers */
+    font-size: 1.5em;
+    color: limegreen;
+    text-transform: uppercase;
     margin-bottom: 20px;
 }
 
 #info-section p, #info-section li {
-    font-size: 1.3em; /* Larger text for readability */
-    line-height: 1.5; /* Improved line spacing */
-    margin-bottom: 10px; /* Space between paragraphs */
+    font-size: 1.3em;
+    line-height: 1.5;
+    margin-bottom: 10px;
 }
 
-ul {
+#did-you-know-section ul {
     list-style: none;
-    padding-left: 20px; /* Aligns text with other text */
+    padding-left: 0;
+    margin-left: 30px; /* Adjust as needed for alignment */
 }
 
-li::before {
-    content: "💊 ";
-    color: limegreen; /* Custom bullet in green */
-    padding-right: 10px;
+#did-you-know-section li {
+    position: relative;
+    padding-left: 40px; /* Enough space for the bullet image */
 }
 
-span {
-    background-color: limegreen;
+#did-you-know-section li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%; /* Centers the bullet vertically */
+    transform: translateY(-50%);
+    width: 24px; /* Size of the bullet image */
+    height: 24px;
+    background: url('green-pill.png') no-repeat center center;
+    background-size: cover; /* Adjust as necessary to fit the design */
+}
+
+a {
+    color: limegreen;
+    text-decoration: none;
+    background-color: transparent;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+a:hover, a:focus {
     color: black;
+    background-color: limegreen;
     padding: 5px;
     border-radius: 5px;
 }
@@ -61,15 +81,11 @@ span {
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     #info-section {
-        width: 95%; /* More screen usage on small devices */
+        width: 95%;
         padding: 10px;
     }
 
-    #info-section h1, #info-section h2 {
-        font-size: 1.5em; /* Smaller headers on small devices */
-    }
-
-    #info-section p, #info-section li {
-        font-size: 1.2em; /* Smaller text on small devices */
+    #info-section h1, #info-section h2, #info-section p, #info-section li {
+        font-size: 1.2em; /* Smaller text for smaller screens */
     }
 }
