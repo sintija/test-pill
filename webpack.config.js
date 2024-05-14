@@ -24,6 +24,7 @@ module.exports = {
 			patterns: [
 				{ from: "./public/favicon.ico", to: "favicon.ico" }, // Copy favicon
 				{ from: "./public/style.css", to: "style.css" }, // Ensure CSS is copied
+				{ from: "./public/script.js", to: "script.js" }, // Ensure CSS is copied
 			],
 		}),
 	],
