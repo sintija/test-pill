@@ -24,28 +24,20 @@
 <body>
     <div id="canvas-container"></div>
     <div id="content">
-        <h1 id="title">You Selected a Green Pill - You Are Safe
-        </h1>
-        <p id="intro">While you are 'safe' now,
-            it's important to understand the context of benzodiazepine prescription.
+        <h1 id="title">You Selected a Green Pill - You Are Safe</h1>
+        <p id="intro">While you are 'safe' now, it's important to understand the context of benzodiazepine prescription.
         </p>
-        <p id="intro-1">
-            Why are they prescribed?
-        </p>
-        <p id="intro-2">
-            For insomnia, pain, anxiety, digestion, muscle spasm, ADHD
-        </p>
+        <p id="intro-1">Why are they prescribed?</p>
+        <p id="intro-2">For insomnia, pain, anxiety, digestion, muscle spasm, ADHD</p>
         <ul>
             <li id="fact1">Over 100,000,000 million worldwide are prescribed a benzodiazepine</li>
             <li id="fact2">Between 10% and 15% of those prescribed long term will experience serious or fatal injury.
             </li>
             <li id="fact3">They are widely prescribed in almost every industrialised country</li>
         </ul>
-        <p id="main">TOXSICK advocates for awareness that leads to real-world change:
-            Injured victims can be properly supported, and we
-            can gain greater trust in our medical systems.
-        </p>
-        <h1 id="title2"> How can you help? </h1>
+        <p id="main">TOXSICK advocates for awareness that leads to real-world change: Injured victims can be properly
+            supported, and we can gain greater trust in our medical systems.</p>
+        <h1 id="title2">How can you help?</h1>
         <div id="links">
             <a href="https://twitter.com/TOXSICKFILM" target="_blank">Follow us on Twitter @TOXSICKFILM</a>
             <a href="https://www.toxsick.org/donate" target="_blank">Donate to our production</a>
@@ -53,6 +45,17 @@
             <a href="mailto:contact@toxsick.org" target="_blank">Become an Executive Producer</a>
         </div>
     </div>
+    <script>
+        // Safari detection and style adjustment
+        document.addEventListener("DOMContentLoaded", function () {
+            const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+            if (isSafari) {
+                const canvasContainer = document.getElementById("canvas-container");
+                canvasContainer.style.height = 'auto'; // Setting to auto to see effect
+                canvasContainer.style.setProperty('height', 'auto', 'important');
+            }
+        });
+    </script>
     <script type="module" src="client.js"></script>
     <script src="script.js"></script>
 </body>
